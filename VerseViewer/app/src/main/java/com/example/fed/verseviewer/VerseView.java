@@ -38,7 +38,7 @@ public class VerseView extends AppCompatActivity {
 
         Log.d("MyMessage", simple.lines[index]+uthmani.lines[index]+en.lines[index]+bn.lines[index]);
         */
-        updateView(suraIndex,ayatIndex);
+        updateView();
 
     }
 
@@ -46,13 +46,14 @@ public class VerseView extends AppCompatActivity {
     }
 
     public void show(View view) {
-
-        suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-        ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
-        updateView(suraIndex, ayatIndex);
+        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
+            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
+            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
+        }
+        updateView();
     }
 
-    public void updateView(int suraIndex, int ayatIndex){
+    public void updateView(){
         if(suraIndex == 0 || ayatIndex ==0){
             suraIndex = 1;
             ayatIndex = 1;
@@ -70,8 +71,10 @@ public class VerseView extends AppCompatActivity {
     }
 
     public void showPrevious(View view) {
-        int suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-        int ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
+        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
+            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
+            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
+        }
         if(ayatIndex == 1){
             if(suraIndex == 1){
              //do nothing
@@ -84,12 +87,14 @@ public class VerseView extends AppCompatActivity {
         }
 
 
-        updateView(suraIndex, ayatIndex);
+        updateView();
     }
 
     public void showNext(View view) {
-        int suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-        int ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
+        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
+            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
+            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
+        }
         if(ayatIndex >= Index.ayatInSura[suraIndex-1]){
             if(suraIndex==114){
                 //do nothing
@@ -100,13 +105,15 @@ public class VerseView extends AppCompatActivity {
         }else{
            ayatIndex++;
         }
-        updateView(suraIndex, ayatIndex);
+        updateView();
     }
 
     public void isEnglish(View view) {
         isEnglish = isEnglishBox.isChecked();
-        int suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-        int ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
-        updateView(suraIndex, ayatIndex);
+        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
+            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
+            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
+        }
+        updateView();
     }
 }

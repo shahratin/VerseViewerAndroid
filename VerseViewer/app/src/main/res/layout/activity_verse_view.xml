@@ -36,37 +36,43 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
+
         <EditText
             android:id="@+id/suraIndex"
-            android:hint="1"
-            android:text="1"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:digits="0123456789"
             android:inputType="number"
-            android:paddingHorizontal="50sp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:text="1" />
+
         <EditText
             android:id="@+id/ayatIndex"
-            android:hint="1"
-            android:text="1"
+            android:gravity="center"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
             android:digits="0123456789"
             android:inputType="number"
-            android:focusableInTouchMode="true"
-            android:paddingHorizontal="50sp"
+            android:text="1" />
+        <View
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-        <Button
-            android:id="@+id/showButton"
-            android:onClick="show"
-            android:text="Show"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
         <CheckBox
             android:id="@+id/isEnglish"
-            android:text="en"
-            android:onClick="isEnglish"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:onClick="isEnglish"
+            android:text="en" />
+
+        <Button
+            android:id="@+id/showButton"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="show"
+            android:text="Show" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
