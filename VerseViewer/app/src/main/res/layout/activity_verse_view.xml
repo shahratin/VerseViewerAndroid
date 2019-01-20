@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".VerseView"
+    android:orientation="vertical">
+
+<ScrollView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="top|end"
+    android:layout_weight="0">
+
+    <TextView
+        android:id="@+id/topText"
+        android:textAlignment="gravity"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</ScrollView>
+<ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+    android:layout_weight="1">
+    <TextView
+        android:id="@+id/bottomText"
+        android:textSize="25sp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</ScrollView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/suraIndex"
+            android:hint="1"
+            android:text="1"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:paddingHorizontal="50sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <EditText
+            android:id="@+id/ayatIndex"
+            android:hint="1"
+            android:text="1"
+            android:digits="0123456789"
+            android:inputType="number"
+            android:focusableInTouchMode="true"
+            android:paddingHorizontal="50sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/showButton"
+            android:onClick="show"
+            android:text="Show"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <CheckBox
+            android:id="@+id/isEnglish"
+            android:text="en"
+            android:onClick="isEnglish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:orientation="horizontal">
+        <Button
+            android:id="@+id/previousButton"
+            android:onClick="showPrevious"
+            android:text="Previous"
+            android:layout_weight="1"
+            android:paddingHorizontal="0sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <Button
+            android:id="@+id/showNext"
+            android:onClick="showNext"
+            android:text="Next"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</LinearLayout>
