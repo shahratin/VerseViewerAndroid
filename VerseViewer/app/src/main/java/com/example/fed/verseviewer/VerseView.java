@@ -1,15 +1,10 @@
 package com.example.fed.verseviewer;
 
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
-
-import static android.view.View.TEXT_ALIGNMENT_VIEW_END;
-import static android.view.View.TEXT_DIRECTION_ANY_RTL;
 
 public class VerseView extends AppCompatActivity {
     boolean isEnglish = false;
@@ -46,10 +41,7 @@ public class VerseView extends AppCompatActivity {
     }
 
     public void show(View view) {
-        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
-            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
-        }
+        checkTextField();
         updateView();
     }
 
@@ -71,10 +63,7 @@ public class VerseView extends AppCompatActivity {
     }
 
     public void showPrevious(View view) {
-        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
-            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
-        }
+        checkTextField();
         if(ayatIndex == 1){
             if(suraIndex == 1){
              //do nothing
@@ -90,11 +79,15 @@ public class VerseView extends AppCompatActivity {
         updateView();
     }
 
-    public void showNext(View view) {
-        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
+    private void checkTextField() {
+        if(!suraIndexText.getText().toString().matches("") && !ayatIndexText.getText().toString().matches("")) {
             suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
             ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
         }
+    }
+
+    public void showNext(View view) {
+        checkTextField();
         if(ayatIndex >= Index.ayatInSura[suraIndex-1]){
             if(suraIndex==114){
                 //do nothing
@@ -110,10 +103,7 @@ public class VerseView extends AppCompatActivity {
 
     public void isEnglish(View view) {
         isEnglish = isEnglishBox.isChecked();
-        if(suraIndexText.getText().toString()!="" && ayatIndexText.getText().toString()!="") {
-            suraIndex = Integer.parseInt(String.valueOf(suraIndexText.getText()));
-            ayatIndex = Integer.parseInt(String.valueOf(ayatIndexText.getText()));
-        }
+        checkTextField();
         updateView();
     }
 }
