@@ -7,7 +7,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.Spinner;
-import android.widget.SpinnerAdapter;
 import android.widget.TextView;
 
 public class VerseView extends AppCompatActivity {
@@ -38,23 +37,6 @@ public class VerseView extends AppCompatActivity {
         suraList.setAdapter(adapter);
         suraList.setOnItemSelectedListener(suraListListener);
 
-
-
-        /*suraList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            }
-        });
-        */
-        /*
-        int index = Index.get(2, 11);
-
-        Book uthmani= new Book(this,R.raw.quran_uthmani);
-        Book en= new Book(this,R.raw.en_yusufali);
-
-        Log.d("MyMessage", simple.lines[index]+uthmani.lines[index]+en.lines[index]+bn.lines[index]);
-        */
         updateView();
 
     }
