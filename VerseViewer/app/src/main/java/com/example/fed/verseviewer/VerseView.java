@@ -62,11 +62,11 @@ public class VerseView extends AppCompatActivity {
         int index = Index.get(suraIndex, ayatIndex);
         suraIndexText.setText(Integer.toString(suraIndex));
         ayatIndexText.setText(Integer.toString(ayatIndex));
-        topText.setText(simple.lines[index]);
+        topText.setText(simple.lines.get(index));
         if(isEnglish){
-            bottomText.setText(en.lines[index]);
+            bottomText.setText(en.lines.get(index));
         }else {
-            bottomText.setText(bn.lines[index]);
+            bottomText.setText(bn.lines.get(index));
         }
 
     }
