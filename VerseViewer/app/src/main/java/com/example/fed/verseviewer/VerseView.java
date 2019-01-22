@@ -49,6 +49,15 @@ public class VerseView extends AppCompatActivity {
         if(suraIndex == 0 || ayatIndex ==0){
             suraIndex = 1;
             ayatIndex = 1;
+        }else if(suraIndex > 114){
+            suraIndex = 114;
+            if(ayatIndex >= Index.ayatInSura[suraIndex-1]){
+                ayatIndex = Index.ayatInSura[suraIndex-1];
+            }
+        }else{
+            if(ayatIndex >= Index.ayatInSura[suraIndex-1]) {
+                ayatIndex = Index.ayatInSura[suraIndex-1];
+            }
         }
         int index = Index.get(suraIndex, ayatIndex);
         suraIndexText.setText(Integer.toString(suraIndex));
@@ -64,7 +73,9 @@ public class VerseView extends AppCompatActivity {
 
     public void showPrevious(View view) {
         checkTextField();
-        if(ayatIndex == 1){
+        if(ayatIndex <= 0){
+            ayatIndex = 1;
+        }else if(ayatIndex == 1){
             if(suraIndex == 1){
              //do nothing
             }else {
@@ -88,8 +99,12 @@ public class VerseView extends AppCompatActivity {
 
     public void showNext(View view) {
         checkTextField();
-        if(ayatIndex >= Index.ayatInSura[suraIndex-1]){
-            if(suraIndex==114){
+        if(suraIndex <= 0){
+            suraIndex = 0;
+        }else if(suraIndex >= 114){
+            suraIndex = 114;
+        }else if(ayatIndex >= Index.ayatInSura[suraIndex-1]){
+            if(suraIndex >= 114){
                 //do nothing
             }else {
                 suraIndex++;
