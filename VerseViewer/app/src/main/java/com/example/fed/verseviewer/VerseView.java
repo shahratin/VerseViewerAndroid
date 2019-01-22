@@ -103,6 +103,9 @@ public class VerseView extends AppCompatActivity {
             suraIndex = 0;
         }else if(suraIndex >= 114){
             suraIndex = 114;
+            if(ayatIndex < Index.ayatInSura[suraIndex-1]){
+                ayatIndex++;
+            }
         }else if(ayatIndex >= Index.ayatInSura[suraIndex-1]){
             if(suraIndex >= 114){
                 //do nothing
