@@ -1,5 +1,7 @@
 package com.example.fed.verseviewer;
 
+import android.media.AudioManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,10 +17,11 @@ public class VerseView extends AppCompatActivity {
     int ayatIndex = 1;
     Book simple, bn, en;
     Menu englishMenu;
-    TextView topText, bottomText, suraIndexText, ayatIndexText;
+    TextView topText, bottomText, suraIndexText, ayatIndexText, ayatCountText;
     CheckBox isEnglishBox;
     Spinner suraList;
     ArrayAdapter<String> adapter;
+    MediaPlayer player;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,11 +34,14 @@ public class VerseView extends AppCompatActivity {
         bottomText = findViewById(R.id.bottomText);
         suraIndexText = findViewById(R.id.suraIndex);
         ayatIndexText = findViewById(R.id.ayatIndex);
+        ayatCountText = findViewById(R.id.ayat_count);
         isEnglishBox = findViewById(R.id.isEnglish);
         suraList = findViewById(R.id.spinner);
         adapter = new ArrayAdapter<>(this, R.layout.support_simple_spinner_dropdown_item, englishMenu.menu);
         suraList.setAdapter(adapter);
         suraList.setOnItemSelectedListener(suraListListener);
+
+        player = new MediaPlayer();
 
         updateView();
 
@@ -75,6 +81,7 @@ public class VerseView extends AppCompatActivity {
             }
         }
         int index = Index.get(suraIndex, ayatIndex);
+        ayatCountText.setText(Integer.toString(Index.ayatInSura[suraIndex - 1]));
 
         suraIndexText.setText(Integer.toString(suraIndex));
         ayatIndexText.setText(Integer.toString(ayatIndex));
@@ -163,8 +170,9 @@ public class VerseView extends AppCompatActivity {
         }
     }
 
-    public void selectSura(View view) {
-        //suraIndex = suraList.getSelectedItemPosition();
-       // updateView();
+    public void playAudio(View view) {
+        //String url = "http://everyayah.com/data/Alafasy_128kbps/001001.mp3";
+        //player.setAudioStreamType(AudioManager.STREAM_MUSIC);
+        //player.setDataSource(url);
     }
 }

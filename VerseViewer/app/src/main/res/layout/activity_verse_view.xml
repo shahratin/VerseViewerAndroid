@@ -39,7 +39,7 @@
         <EditText
             android:id="@+id/suraIndex"
             android:gravity="center"
-            android:layout_width="100dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:digits="0123456789"
             android:inputType="number"
@@ -48,11 +48,17 @@
         <EditText
             android:id="@+id/ayatIndex"
             android:gravity="center"
-            android:layout_width="100dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:digits="0123456789"
             android:inputType="number"
             android:text="1" />
+        <EditText
+            android:id="@+id/ayat_count"
+            android:layout_height="wrap_content"
+            android:layout_width="50dp"
+            android:gravity="center"
+            android:text="7"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -66,9 +72,18 @@
             android:text="en" />
 
         <Button
+            android:id="@+id/listenButton"
+            android:onClick="playAudio"
+            android:text="Listen"
+            android:textSize="10dp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content" />
+
+        <Button
             android:id="@+id/showButton"
             android:layout_gravity="end"
-            android:layout_width="wrap_content"
+            android:textSize="10dp"
+            android:layout_width="60dp"
             android:layout_height="wrap_content"
             android:onClick="show"
             android:text="Show" />
@@ -77,14 +92,14 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="fill_horizontal"
         android:orientation="horizontal">
         <Spinner
             android:id="@+id/spinner"
             android:background="@null"
-            android:layout_width="190dp"
+            android:layout_width="200dp"
             android:layout_gravity="start"
             android:layout_height="match_parent"/>
         <View
